@@ -4,7 +4,7 @@ import com.hightecher.windo.road.dto.Grade;
 
 public record MapPointDto(
         String linkId,
-        double lat,
-        double lon,
+        Double lat,
+        Double lon,
         Grade grade
 ) {}
