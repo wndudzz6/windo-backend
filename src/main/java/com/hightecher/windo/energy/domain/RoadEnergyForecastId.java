@@ -20,7 +20,7 @@ public class RoadEnergyForecastId implements Serializable {
     private String linkId;
 
     @Column(name = "season")
-    private String season; // "봄", "여름", "가을", "겨울"
+    private Season season;
 
     @Column(name = "hour")
     private Integer hour;

@@ -1,5 +1,6 @@
 package com.hightecher.windo.energy.controller;
 
+import com.hightecher.windo.energy.domain.Season;
 import com.hightecher.windo.energy.dto.EnergyImpactResult;
 import com.hightecher.windo.energy.dto.TurbineScaleRequest;
 import com.hightecher.windo.energy.service.EnergyImpactService;
@@ -21,7 +22,7 @@ public class EnergyController {
     @GetMapping("/{linkId}/impact/season")
     public EnergyImpactResult getSeasonImpact(
             @PathVariable String linkId,
-            @RequestParam String season
+            @RequestParam Season season
     ) {
         return energyImpactService.calculateSeasonImpact(linkId, season);
     }

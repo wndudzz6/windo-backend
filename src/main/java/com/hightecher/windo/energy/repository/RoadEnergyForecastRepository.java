@@ -1,6 +1,7 @@
 package com.hightecher.windo.energy.repository;
 
 import com.hightecher.windo.energy.domain.RoadEnergyForecast;
+import com.hightecher.windo.energy.domain.Season;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import org.springframework.stereotype.Repository;
@@ -27,7 +28,7 @@ public class RoadEnergyForecastRepository {
 
     public List<RoadEnergyForecast> findByLinkIdAndSeason(
             String linkId,
-            String season
+            Season season
     ) {
         return em.createQuery("""
             select e

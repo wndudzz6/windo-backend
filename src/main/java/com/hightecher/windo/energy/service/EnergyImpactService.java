@@ -1,6 +1,7 @@
 package com.hightecher.windo.energy.service;
 
 import com.hightecher.windo.energy.domain.RoadEnergyForecast;
+import com.hightecher.windo.energy.domain.Season;
 import com.hightecher.windo.energy.dto.EnergyImpactResult;
 import com.hightecher.windo.energy.repository.RoadEnergyForecastRepository;
 import lombok.RequiredArgsConstructor;
@@ -44,7 +45,7 @@ public class EnergyImpactService {
 
     public EnergyImpactResult calculateSeasonImpact(
             String linkId,
-            String season
+            Season season
     ) {
 
         List<RoadEnergyForecast> list =
