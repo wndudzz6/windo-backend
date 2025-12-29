@@ -1,6 +1,6 @@
-package com.hightecher.windo.road.repository;
+package com.hightecher.windo.map;
 
-import com.hightecher.windo.map.MapPointDto;
+import com.hightecher.windo.road.dto.Grade;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import org.springframework.stereotype.Repository;
@@ -29,4 +29,23 @@ public class RoadMapQueryRepository {
         """, MapPointDto.class)
                 .getResultList();
     }
+
+    public List<MapPointDto> findMapPointsByGrades(List<Grade> grades) {
+        return em.createQuery("""
+        select new com.hightecher.windo.map.MapPointDto(
+            l.linkId,
+            l.lat,
+            l.lon,
+            a.grade
+        )
+        from RoadLocation l
+        join RoadAiResult a
+            on l.linkId = a.linkId
+        where a.grade in :grades
+    """, MapPointDto.class)
+                .setParameter("grades", grades)
+                .getResultList();
+    }
+
+
 }

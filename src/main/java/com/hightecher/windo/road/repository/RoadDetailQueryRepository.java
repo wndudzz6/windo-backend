@@ -1,10 +1,13 @@
 package com.hightecher.windo.road.repository;
 
+import com.hightecher.windo.road.dto.Grade;
 import com.hightecher.windo.road.dto.RoadDetailDto;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
 
 @Repository
 @Transactional(readOnly = true)
@@ -36,4 +39,8 @@ public class RoadDetailQueryRepository {
                 .setParameter("linkId", linkId)
                 .getSingleResult();
     }
+
+
+
+
 }
