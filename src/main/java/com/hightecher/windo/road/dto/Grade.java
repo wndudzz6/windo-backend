@@ -1,5 +1,6 @@
 package com.hightecher.windo.road.dto;
 
+//A빼고 priority
 public enum Grade {
     S(5),
     A(4),

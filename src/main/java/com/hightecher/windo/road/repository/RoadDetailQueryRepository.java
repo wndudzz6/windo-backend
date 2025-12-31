@@ -40,6 +40,30 @@ public class RoadDetailQueryRepository {
                 .getSingleResult();
     }
 
+    public List<RoadDetailDto> findTop10ByAiScore() {
+        return em.createQuery("""
+            select new com.hightecher.windo.road.dto.RoadDetailDto(
+                a.linkId,
+                a.startName,
+                a.endName,
+                a.region,
+                a.aiScore,
+                a.aiExplanation,
+                a.grade,
+                a.avgPower,
+                l.roadType,
+                l.distanceM,
+                l.lanes
+            )
+            from RoadAiResult a
+            join RoadLocation l
+                on a.linkId = l.linkId
+            order by a.aiScore desc
+        """, RoadDetailDto.class)
+                .setMaxResults(10)
+                .getResultList();
+    }
+
 
 
 

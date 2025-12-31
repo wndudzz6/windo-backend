@@ -22,6 +22,6 @@ public class RoadEnergyForecastId implements Serializable {
     @Column(name = "season")
     private Season season;
 
-    @Column(name = "hour")
-    private Integer hour;
+    @Column(name = "time")
+    private Integer time;
 }
